@@ -1,0 +1,49 @@
+generated: '2026-07-20'
+method: searched
+status: published
+source: https://www.planhat.com/developers/ai/mcp-server/
+description: >-
+  Planhat operates an official remote MCP server that connects AI tools (Claude,
+  ChatGPT, custom apps) to live Planhat Customer Platform data. Authenticated via
+  OAuth 2.0 (client_id prefix pk_, client_secret prefix sk_) against Planhat's
+  authorization server (well-known/planhat-oauth-authorization-server.json), or
+  via a legacy Private App access token. Tools operate generically over Planhat
+  models (records) and documents. Tool list captured verbatim from the MCP Server
+  documentation.
+server:
+  name: planhat
+  transport: http
+  url: https://api.planhat.com/v1/mcp
+  demo_url: https://api.planhatdemo.com/v1/mcp
+  auth: oauth2
+  authorization_server: well-known/planhat-oauth-authorization-server.json
+auth_methods:
+- type: oauth2
+  note: Recommended. OAuth client credentials — client_id (pk_...) + client_secret (sk_...).
+- type: access_token
+  note: Legacy Private Apps — bearer access token generated in App Center / Settings.
+clients:
+- Claude
+- ChatGPT
+- Custom applications
+tools:
+- name: get_model_action_parameters
+  description: Retrieve the available action parameters for a Planhat model.
+- name: list_model_records
+  description: List records of a given Planhat model.
+- name: get_model_record
+  description: Retrieve a single model record by id.
+- name: search_records
+  description: Full-text discovery across models when you don't know record IDs.
+- name: create_model_record
+  description: Create a new record for a Planhat model.
+- name: update_model_record
+  description: Update an existing model record.
+- name: delete_model_record
+  description: Delete a model record.
+- name: create_document
+  description: Create a Planhat document.
+- name: get_document
+  description: Retrieve a Planhat document.
+- name: search_documents
+  description: Search across Planhat documents.

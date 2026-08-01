@@ -1,0 +1,32 @@
+generated: '2026-07-20'
+method: searched
+source: https://www.planhat.com/changelog
+description: >-
+  Recent entries from Planhat's public product changelog. Undated-semver product
+  changelog (dated posts, no API version numbers). Recent window only.
+scheme: dated-posts
+url: https://www.planhat.com/changelog
+entries:
+- date: '2026-07-10'
+  title: Connect any models and create new ones
+  highlights: >-
+    Custom model creation alongside system models — custom associations, junction
+    models for many-to-many, joined tables, and cross-model formula fields.
+- date: '2026-06-30'
+  title: Add human review to any step in an Automation
+  highlights: Approve/reject a step's output before an Automation continues; role-based assignment and configurable timeouts.
+- date: '2026-06-25'
+  title: Upload and export Planhat Documents as markdown
+  highlights: Import/export documents in .md, improving interchange with AI tools like Claude and ChatGPT.
+- date: '2026-06-23'
+  title: Read and create Planhat documents through MCP
+  highlights: Documents accessible via MCP — bidirectional workflow between Planhat and external AI tools.
+- date: '2026-06-19'
+  title: Set OAuth permissions automatically when connecting to MCP
+  highlights: OAuth connections apply maximum permission levels automatically while keeping admin controls.
+- date: '2026-06-15'
+  title: Fetch Salesforce formula fields to populate record associations
+  highlights: Salesforce integration now supports formula fields alongside lookup fields for association mapping.
+- date: '2026-06-08'
+  title: Build Automations faster with smarter field-filling and step controls
+  highlights: Field-specific GET requests, team-member field management, and smart auto-population of values.

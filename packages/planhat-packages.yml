@@ -1,0 +1,30 @@
+generated: '2026-07-20'
+method: searched
+source: npm registry, PyPI, github.com/planhat
+description: >-
+  Planhat does not publish a first-party SDK. The github.com/planhat organization
+  exists but has no public repositories. The packages below are community-built
+  clients and third-party platform integrations — none are official.
+official_sdk: false
+packages:
+- language: python
+  registry: pypi
+  name: planhat
+  url: https://pypi.org/project/planhat/
+  install: pip install planhat
+  official: false
+  note: Community Python client for the Planhat API (author Nick Allen, github.com/nick-allen/planhat-python).
+- language: javascript
+  registry: npm
+  name: analytics-plugin-planhat
+  url: https://www.npmjs.com/package/analytics-plugin-planhat
+  install: npm install analytics-plugin-planhat
+  official: false
+  note: Community plugin wiring the 'analytics' module to Planhat's tracking endpoint.
+- language: javascript
+  registry: npm
+  name: "@pipedream/planhat"
+  url: https://www.npmjs.com/package/@pipedream/planhat
+  install: npm install @pipedream/planhat
+  official: false
+  note: Pipedream platform components for Planhat (third-party).

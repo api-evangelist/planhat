@@ -1,7 +1,16 @@
 aid: planhat
 name: Planhat
-description: 'Planhat is a company surfaced as a portfolio company of creandum and added to the API Evangelist
-  network as a stub for enrichment. Sector: saas. This profile is a lead awaiting the enrichment pipeline.'
+description: >-
+  Planhat is a Customer Platform that unifies customer success, product usage,
+  revenue and post-sales operations for B2B SaaS companies. It centralizes
+  companies, end users, licenses, conversations, NPS, health scores and
+  time-series usage metrics, then drives playbooks, automations and revenue
+  workflows on top of that data. Planhat exposes a REST API (api.planhat.com), a
+  separate high-throughput analytics/tracking endpoint (analytics.planhat.com),
+  bulk upsert, an OAuth authorization server, and a remote MCP server
+  (api.planhat.com/v1/mcp) for AI agents. Backed by Creandum and added to the
+  API Evangelist network; this profile was enriched from Planhat's public
+  developer surface.
 url: https://raw.githubusercontent.com/api-evangelist/planhat/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,18 +18,136 @@ x-backed-by:
 - creandum
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
+image: https://www.planhat.com/
 tags:
 - Company
 - Saas
-apis: []
+- Customer Success
+- Customer Platform
+- CRM
+- Customer Data
+- Analytics
+- Revenue
+- MCP
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- name: Planhat REST API
+  description: >-
+    Planhat's REST API for reading and writing every core Customer Platform
+    object — companies, end users, licenses, conversations, notes, tasks,
+    opportunities, deals, sales, invoices, assets, issues, tickets, projects,
+    NPS, churn, metrics and custom models — plus bulk upsert. Bearer-token
+    (Private App) authenticated; limit/offset pagination.
+  humanURL: https://www.planhat.com/developers/api/introduction
+  baseURL: https://api.planhat.com
+  tags:
+  - Customer Success
+  - REST
+  - Customer Platform
+  properties:
+  - type: Documentation
+    url: https://www.planhat.com/developers/api/introduction
+  - type: Authentication
+    url: authentication/planhat-authentication.yml
+  - type: Conventions
+    url: conventions/planhat-conventions.yml
+  - type: ErrorCatalog
+    url: errors/planhat-problem-types.yml
+  - type: DataModel
+    url: data-model/planhat-data-model.yml
+- name: Planhat Analytics API
+  description: >-
+    High-throughput tracking endpoint for pushing user activities and product
+    usage metrics into Planhat. Addressed by tenant UUID in the URL path (open /
+    tenant-scoped), separate from the main authenticated REST API.
+  humanURL: https://www.planhat.com/developers/api/user-activities
+  baseURL: https://analytics.planhat.com
+  tags:
+  - Analytics
+  - Tracking
+  - Metrics
 common:
+- type: TrustCenter
+  url: security/planhat-trust-center.yml
+- type: DomainSecurity
+  url: security/planhat-domain-security.yml
 - type: Website
   url: https://www.planhat.com/
+- type: DeveloperPortal
+  url: https://www.planhat.com/developers
+- type: Documentation
+  url: https://www.planhat.com/developers/api/introduction
+- type: APIReference
+  url: https://www.planhat.com/developers/api/introduction
+- type: GettingStarted
+  url: https://www.planhat.com/developers/api/introduction
+- type: Support
+  url: https://help.planhat.com/en/
+- type: Blog
+  url: https://www.planhat.com/blog
+- type: ChangeLog
+  url: https://www.planhat.com/changelog
+- type: StatusPage
+  url: https://status.planhat.com/
+- type: GitHubOrganization
+  url: https://github.com/planhat
+- type: Pricing
+  url: https://www.planhat.com/pricing
+- type: TermsOfService
+  url: https://www.planhat.com/legal/acceptable-use-policy
+- type: PrivacyPolicy
+  url: https://www.planhat.com/legal/cookie-policy
+- type: Compliance
+  url: https://trust.planhat.com/
+- type: MCPServer
+  url: mcp/planhat-mcp.yml
+- type: WellKnown
+  url: well-known/planhat-well-known.yml
+- type: Authentication
+  url: authentication/planhat-authentication.yml
+- type: Conventions
+  url: conventions/planhat-conventions.yml
+- type: RateLimits
+  url: rate-limits/planhat-rate-limits.yml
+- type: ErrorCatalog
+  url: errors/planhat-problem-types.yml
+- type: DataModel
+  url: data-model/planhat-data-model.yml
+- type: Conformance
+  url: conformance/planhat-conformance.yml
+- type: Lifecycle
+  url: lifecycle/planhat-lifecycle.yml
+- type: ChangeLog
+  url: changelog/planhat-changelog.yml
+- type: Webhooks
+  url: asyncapi/planhat-webhooks.yml
+- type: Packages
+  url: packages/planhat-packages.yml
+- type: Sandbox
+  url: sandbox/planhat-sandbox.yml
+- type: LLMsTxt
+  url: llms/planhat-llms.txt
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 17
+  pass: local-v1

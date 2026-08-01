@@ -1,0 +1,43 @@
+generated: '2026-07-20'
+method: searched
+source: >-
+  well-known/planhat-oauth-authorization-server.json,
+  https://www.planhat.com/developers/api/authentication-limits,
+  https://trust.planhat.com/
+description: >-
+  Industry / cross-cutting standards Planhat's API conforms to, from its
+  published OAuth metadata, developer docs, and trust center.
+standards:
+- id: oauth2
+  conforms: true
+  evidence: RFC 8414 authorization-server metadata (authorization_code + refresh_token, PKCE S256) at api.planhat.com.
+- id: oauth2-pkce
+  conforms: true
+  evidence: code_challenge_methods_supported includes S256.
+- id: rfc8414-as-metadata
+  conforms: true
+  evidence: /.well-known/oauth-authorization-server returns 200 with valid metadata.
+- id: bearer-token-auth
+  conforms: true
+  evidence: 'Authorization: Bearer {{apiAccessToken}} documented.'
+- id: offset-pagination
+  conforms: true
+  evidence: limit/offset/sort/select query params documented on list endpoints.
+- id: bulk-upsert
+  conforms: true
+  evidence: PUT-to-collection bulk upsert with per-record partial-success reporting.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors use a custom bulk envelope (createdErrors/updatedErrors/permissionErrors), not application/problem+json.
+- id: openid-connect
+  conforms: false
+  evidence: /.well-known/openid-configuration returns 401; only OAuth2 (not OIDC) is advertised.
+- id: soc2
+  conforms: true
+  evidence: SOC 2 Type 1 and Type 2 listed at trust.planhat.com.
+- id: iso-27001
+  conforms: true
+  evidence: ISO/IEC 27001 (+ SoA) listed at trust.planhat.com.
+- id: gdpr
+  conforms: true
+  evidence: GDPR listed at trust.planhat.com.

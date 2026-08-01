@@ -1,0 +1,79 @@
+generated: '2026-07-20'
+method: searched
+source: >-
+  https://www.planhat.com/developers/api/authentication-limits,
+  https://www.planhat.com/developers/api/bulk-upsert,
+  https://www.planhat.com/developers/api/company
+description: >-
+  Cross-cutting request/response conventions for the Planhat REST API — auth
+  style, pagination, filtering/field selection, bulk upsert, rate-limit ceilings,
+  and the error envelope — that apply across every endpoint rather than any single
+  operation.
+base_url: https://api.planhat.com
+analytics_url: https://analytics.planhat.com
+api_style: REST over HTTPS, JSON request and response bodies
+
+authentication:
+  scheme: Bearer API access token (Private App); Basic auth also accepted; OAuth2 for MCP/apps.
+  detail: authentication/planhat-authentication.yml
+  docs: https://www.planhat.com/developers/api/authentication-limits
+
+idempotency:
+  supported: false
+  note: >-
+    Planhat does not document a client-supplied idempotency key. De-duplication on
+    writes is instead achieved through upsert semantics keyed on externalId /
+    sourceId / email (see bulk upsert), not an Idempotency-Key header.
+
+pagination:
+  style: offset
+  request_params:
+    limit: default 100, max 5000
+    offset: starting index position
+    sort: property name; prefix with "-" for descending
+    select: comma-separated list of properties to return
+  docs: https://www.planhat.com/developers/api/company
+
+filtering:
+  note: >-
+    List endpoints accept id filters (e.g. companyId as comma-separated ObjectIds)
+    and property selection via select. Lean list variants (e.g. GET /leancompanies)
+    return lightweight records.
+
+bulk_upsert:
+  supported: true
+  method: PUT to the collection endpoint (e.g. PUT /companies)
+  match_keys: [externalId, sourceId, email, _id]
+  max_items: 5000
+  max_body_bytes: 33554432   # 32 MB
+  response: >-
+    Partial success is reported per-record (HTTP 206) with created/updated counts
+    and createdErrors / updatedErrors / permissionErrors arrays.
+  docs: https://www.planhat.com/developers/api/bulk-upsert
+  errors: errors/planhat-problem-types.yml
+
+rate_limits:
+  soft_limit: 200 API calls per minute
+  hard_limit: 150 requests per second, bursts up to 50 parallel requests
+  max_bulk_items: 5000
+  max_body_bytes: 33554432
+  throttled_status: 429
+  detail: rate-limits/planhat-rate-limits.yml
+  docs: https://www.planhat.com/developers/api/authentication-limits
+
+error_envelope:
+  shape: >-
+    Bulk operations return per-record error arrays (createdErrors, updatedErrors,
+    permissionErrors) alongside success counts; single-record errors return an
+    HTTP status with a message body.
+  detail: errors/planhat-problem-types.yml
+
+webhooks:
+  supported: true
+  note: >-
+    Automations can trigger on record create/update/delete and field changes, and
+    can invoke outbound HTTP webhooks (GET/POST/PUT/PATCH/DELETE); incoming
+    webhooks are also supported. No fixed published event catalog.
+  detail: asyncapi/planhat-webhooks.yml
+
+lifecycle: lifecycle/planhat-lifecycle.yml

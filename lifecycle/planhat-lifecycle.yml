@@ -1,0 +1,25 @@
+generated: '2026-07-20'
+method: searched
+source: >-
+  https://www.planhat.com/changelog, https://status.planhat.com/,
+  https://www.planhat.com/developers/ai/mcp-server/
+description: >-
+  Planhat API lifecycle signals — versioning, status page, and change
+  communication. Planhat publishes a dated product changelog and a public status
+  page. No formal deprecation/sunset-header policy is documented on the developer
+  surface.
+versioning:
+  scheme: uri-path
+  observed: v1
+  note: >-
+    The MCP endpoint is versioned in the path (/v1/mcp). The core REST resource
+    paths (e.g. /companies) are unversioned. No dated API-version pinning is
+    documented.
+status_page: https://status.planhat.com/
+status_page_mirror: https://planhat.statuspage.io/
+changelog: https://www.planhat.com/changelog
+changelog_detail: changelog/planhat-changelog.yml
+deprecation:
+  policy_documented: false
+  sunset_header: unknown
+  note: No public deprecation policy or RFC 8594 Sunset/Deprecation header support found.

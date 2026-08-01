@@ -1,0 +1,23 @@
+generated: '2026-07-20'
+method: searched
+source: live probes of /.well-known/ on Planhat API hosts
+host: https://api.planhat.com
+documents:
+- path: /.well-known/oauth-authorization-server   # RFC 8414
+  status: 200
+  file: planhat-oauth-authorization-server.json
+- path: /.well-known/openid-configuration          # OIDC discovery
+  status: 401
+- path: /.well-known/security.txt                   # RFC 9116
+  status: 401
+- path: /.well-known/api-catalog                     # RFC 9727
+  status: 401
+- path: /.well-known/ai-plugin.json
+  status: 401
+notes: >-
+  api.planhat.com publishes a real OAuth 2.0 Authorization Server Metadata
+  document (RFC 8414): authorization_code + refresh_token grants, PKCE S256,
+  authorization_endpoint on ws.planhat.com, token_endpoint on api.planhat.com.
+  This is the OAuth surface Planhat's remote MCP server authenticates against.
+  Other /.well-known/ paths return 401 (auth-gated catch-all), not published
+  documents. www.planhat.com/.well-known/security.txt returns 404.

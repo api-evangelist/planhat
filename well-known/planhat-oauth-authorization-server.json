@@ -1,0 +1,1 @@
+{"issuer":"https://api.planhat.com","authorization_endpoint":"https://ws.planhat.com/oauth/authorize","token_endpoint":"https://api.planhat.com/oauth/token","response_types_supported":["code"],"grant_types_supported":["authorization_code","refresh_token"],"code_challenge_methods_supported":["S256"],"scopes_supported":["inclusive"]}

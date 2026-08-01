@@ -1,0 +1,32 @@
+generated: '2026-07-20'
+method: searched
+source: https://www.planhat.com/developers/api/http-response-codes
+format: custom
+description: >-
+  Planhat's documented HTTP response codes and the bulk-operation error envelope.
+  Not RFC 9457 problem+json — bulk operations return per-record error arrays
+  (createdErrors, updatedErrors, permissionErrors) alongside success counts.
+envelope:
+  fields:
+  - createdErrors    # failures during create operations
+  - updatedErrors    # failures during update operations
+  - permissionErrors # permission-related failures
+problems:
+- status: 200
+  title: Success
+  detail: All operations (create/update) were successful.
+- status: 206
+  title: Partial Success
+  detail: Some operations succeeded but others returned errors (see error arrays).
+- status: 400
+  title: Client Error
+  detail: Problem with the request payload — usually a required key is missing or duplicated.
+- status: 403
+  title: Permission Denied
+  detail: You don't have the right permissions to execute one or all of the operations.
+- status: 429
+  title: Too Many Requests
+  detail: Rate limit exceeded (200/min soft, 150/s hard). See rate-limits/planhat-rate-limits.yml.
+- status: 500
+  title: Server Error
+  detail: There was an error on the Planhat side.

@@ -1,0 +1,55 @@
+generated: '2026-07-20'
+method: searched
+source: https://www.planhat.com/developers/api/authentication-limits
+docs: https://www.planhat.com/developers/api/authentication-limits
+description: >-
+  Planhat authenticates the main REST API with a bearer API access token
+  (generated as a Private App under Settings; shown once, long-lived). Basic auth
+  is also accepted. The remote MCP server and programmatic OAuth clients use
+  OAuth 2.0 authorization_code + refresh_token with PKCE (S256) against
+  api.planhat.com. The separate analytics/tracking endpoint is addressed by
+  tenant UUID in the URL path (tenant-scoped, effectively open for ingest).
+summary:
+  types: [http, oauth2]
+  http_schemes: [bearer, basic]
+  oauth2_flows: [authorizationCode]
+schemes:
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  in: header
+  header: Authorization
+  format: 'Authorization: Bearer {{apiAccessToken}}'
+  token_source: Private App access token (Settings > Private Apps); appears once, store securely.
+  applies_to: https://api.planhat.com
+  sources: [https://www.planhat.com/developers/api/authentication-limits]
+- name: basicAuth
+  type: http
+  scheme: basic
+  note: Basic authentication is also accepted on the main API.
+  sources: [https://www.planhat.com/developers/api/authentication-limits]
+- name: oauth2
+  type: oauth2
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://ws.planhat.com/oauth/authorize
+    tokenUrl: https://api.planhat.com/oauth/token
+    pkce: S256
+    refresh: true
+    scopes:
+      inclusive: Broad inclusive scope (only scope advertised in RFC 8414 metadata).
+  client_id_prefix: pk_
+  client_secret_prefix: sk_
+  used_by: Remote MCP server (api.planhat.com/v1/mcp) and OAuth apps.
+  sources:
+  - well-known/planhat-oauth-authorization-server.json
+  - https://www.planhat.com/developers/ai/mcp-server/
+- name: tenantPath
+  type: apiKey
+  in: path
+  name: tenantUUID
+  note: >-
+    Analytics endpoint (analytics.planhat.com/analytics/{tenantUUID}) is addressed
+    by tenant UUID in the path; Segment ingest uses Basic auth with tenantUUID as
+    username. Not the main API auth.
+  sources: [https://www.planhat.com/developers/api/user-activities]

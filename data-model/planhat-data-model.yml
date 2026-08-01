@@ -1,0 +1,113 @@
+generated: '2026-07-20'
+method: searched
+source: >-
+  https://www.planhat.com/developers/api/planhat-models,
+  https://www.planhat.com/developers/api/company
+description: >-
+  Planhat's core Customer Platform data model — the objects exposed by the REST
+  API and the id-reference relationships between them. Company is the central
+  entity; most objects belong to a company and are owned by a user. Ids are
+  MongoDB ObjectIds; records also carry externalId (your system) and sourceId
+  (integration source).
+id_format: MongoDB ObjectId (24-hex); plus externalId and sourceId for matching.
+entities:
+- name: Company
+  path: /companies
+  lean_path: /leancompanies
+  key_fields: [name, externalId, sourceId, owner, coOwner, phase, status, custom, hProfile, orgRootId]
+  status_enum: [prospect, coming, customer, canceled, lost]
+- name: Enduser
+  path: /endusers
+  note: A contact / person at a company.
+- name: User
+  path: /users
+  note: A Planhat team member (e.g. account manager); referenced by owner/coOwner.
+- name: License
+  path: /licenses
+- name: Conversation
+  path: /conversations
+- name: Note
+  path: /notes
+- name: Task
+  path: /tasks
+- name: Opportunity
+  path: /opportunities
+- name: Deal
+  path: /deals
+- name: Sale
+  path: /sales
+- name: Invoice
+  path: /invoices
+- name: Line Item
+  path: /lineitems
+- name: Product
+  path: /products
+- name: Asset
+  path: /assets
+- name: Issue
+  path: /issues
+- name: Ticket
+  path: /tickets
+- name: Project
+  path: /projects
+- name: Objective
+  path: /objectives
+- name: Campaign
+  path: /campaigns
+- name: Churn
+  path: /churn
+- name: NPS
+  path: /nps
+- name: Metrics
+  path: /metrics
+  note: Time-series usage metrics (also ingested via analytics.planhat.com).
+- name: User Activities
+  path: /useractivities
+  note: Tracked activity events (ingested via analytics.planhat.com).
+- name: Time Entry
+  path: /timeentries
+- name: Timesheet
+  path: /timesheets
+- name: Custom Field
+  path: /customfields
+relationships:
+- from: Company
+  to: User
+  type: belongs_to
+  via: owner
+- from: Company
+  to: User
+  type: belongs_to
+  via: coOwner
+- from: Company
+  to: Company
+  type: belongs_to
+  via: orgRootId
+- from: Enduser
+  to: Company
+  type: belongs_to
+  via: companyId
+- from: License
+  to: Company
+  type: belongs_to
+  via: companyId
+- from: Conversation
+  to: Company
+  type: belongs_to
+  via: companyId
+- from: Note
+  to: Company
+  type: belongs_to
+  via: companyId
+- from: Opportunity
+  to: Company
+  type: belongs_to
+  via: companyId
+- from: NPS
+  to: Company
+  type: belongs_to
+  via: companyId
+- from: Asset
+  to: Company
+  type: belongs_to
+  via: companyId

@@ -1,0 +1,28 @@
+generated: '2026-07-20'
+method: searched
+source: https://www.planhat.com/developers/automations/triggers
+spec_type: Webhooks
+description: >-
+  Planhat exposes events through its Automations engine rather than a fixed,
+  published webhook event catalog. Automations trigger on record create / update
+  / delete and on specific field changes (at the data-model level), on schedules,
+  and on incoming webhooks; automation actions can invoke outbound HTTP webhooks
+  to external services. No AsyncAPI document or enumerated event-type registry is
+  published, so this captures the webhook surface as a Webhooks artifact.
+triggers:
+- type: record.create
+  scope: any data model
+- type: record.update
+  scope: any data model
+- type: record.delete
+  scope: any data model
+- type: field.change
+  scope: specific field on a data model
+- type: schedule
+  scope: daily / hourly / specific time
+- type: webhook.incoming
+  scope: inbound HTTP into an automation
+outbound:
+  http_methods: [GET, POST, PUT, PATCH, DELETE]
+  note: Automations can call third-party APIs with dynamic payloads (outbound webhooks).
+catalog_published: false

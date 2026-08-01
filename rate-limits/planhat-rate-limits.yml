@@ -1,0 +1,45 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+provider: Planhat
+providerId: planhat
+generated: '2026-07-20'
+method: searched
+created: '2026-07-20'
+modified: '2026-07-20'
+tags:
+- Rate Limiting
+- Customer Success
+description: >-
+  Planhat main REST API rate limits — a soft limit of 200 calls/minute, a hard
+  limit of 150 requests/second (bursts of up to 50 parallel requests), a 5,000
+  item cap per bulk request, and a 32 MB request-body ceiling.
+sources:
+- https://www.planhat.com/developers/api/authentication-limits
+responseCodes:
+  throttled: 429
+limits:
+- name: Soft limit
+  scope: token
+  metric: requests_per_minute
+  limit: 200
+  timeFrame: minute
+- name: Hard limit
+  scope: token
+  metric: requests_per_second
+  limit: 150
+  timeFrame: second
+- name: Parallel request burst
+  scope: token
+  metric: parallel_requests
+  limit: 50
+  timeFrame: instant
+- name: Bulk items per request
+  scope: request
+  metric: items
+  limit: 5000
+  timeFrame: request
+- name: Request body size
+  scope: request
+  metric: bytes
+  limit: 33554432
+  timeFrame: request
