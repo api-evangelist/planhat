@@ -2,14 +2,11 @@ generated: '2026-07-20'
 method: searched
 status: published
 source: https://www.planhat.com/developers/ai/mcp-server/
-description: >-
-  Planhat operates an official remote MCP server that connects AI tools (Claude,
-  ChatGPT, custom apps) to live Planhat Customer Platform data. Authenticated via
-  OAuth 2.0 (client_id prefix pk_, client_secret prefix sk_) against Planhat's
-  authorization server (well-known/planhat-oauth-authorization-server.json), or
-  via a legacy Private App access token. Tools operate generically over Planhat
-  models (records) and documents. Tool list captured verbatim from the MCP Server
-  documentation.
+description: Planhat operates an official remote MCP server that connects AI tools (Claude, ChatGPT, custom
+  apps) to live Planhat Customer Platform data. Authenticated via OAuth 2.0 (client_id prefix pk_, client_secret
+  prefix sk_) against Planhat's authorization server (well-known/planhat-oauth-authorization-server.json),
+  or via a legacy Private App access token. Tools operate generically over Planhat models (records) and
+  documents. Tool list captured verbatim from the MCP Server documentation.
 server:
   name: planhat
   transport: http
@@ -47,3 +44,10 @@ tools:
   description: Retrieve a Planhat document.
 - name: search_documents
   description: Search across Planhat documents.
+deployment:
+  mode: remote
+  endpoint: https://api.planhat.com/v1/mcp
+  verified: probed
+  probe: wall
+  checked: '2026-08-12'
+  source: catalog MCP census
