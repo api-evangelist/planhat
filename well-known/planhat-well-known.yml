@@ -1,23 +1,30 @@
-generated: '2026-07-20'
-method: searched
-source: live probes of /.well-known/ on Planhat API hosts
-host: https://api.planhat.com
-documents:
-- path: /.well-known/oauth-authorization-server   # RFC 8414
-  status: 200
-  file: planhat-oauth-authorization-server.json
-- path: /.well-known/openid-configuration          # OIDC discovery
-  status: 401
-- path: /.well-known/security.txt                   # RFC 9116
-  status: 401
-- path: /.well-known/api-catalog                     # RFC 9727
-  status: 401
-- path: /.well-known/ai-plugin.json
-  status: 401
-notes: >-
-  api.planhat.com publishes a real OAuth 2.0 Authorization Server Metadata
-  document (RFC 8414): authorization_code + refresh_token grants, PKCE S256,
-  authorization_endpoint on ws.planhat.com, token_endpoint on api.planhat.com.
-  This is the OAuth surface Planhat's remote MCP server authenticates against.
-  Other /.well-known/ paths return 401 (auth-gated catch-all), not published
-  documents. www.planhat.com/.well-known/security.txt returns 404.
+generated: '2026-09-19'
+method: probed
+hosts:
+- host: https://api.planhat.com
+  documents:
+  - path: /.well-known/oauth-protected-resource
+    status: 200
+    file: planhat-api-oauth-protected-resource.json
+    bytes: 130
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    file: planhat-api-oauth-authorization-server.json
+    bytes: 425
+  path_echo_control: passed
+x-mcp-probe:
+  probed: '2026-09-19'
+  issue: roadmap#321, roadmap#337
+  documents:
+  - host: https://api.planhat.com
+    path: /.well-known/oauth-protected-resource
+    file: planhat-api-oauth-protected-resource.json
+  - host: https://api.planhat.com
+    path: /.well-known/oauth-authorization-server
+    file: planhat-api-oauth-authorization-server.json
+  validated_on: resource (RFC 9728) / issuer (RFC 8414, OIDC)
+  negative_control: one per host; a 2xx JSON object at an impossible path discards the host
+note: 'MCP-host OAuth discovery added 2026-09-19 (roadmap#321/#337): the harvest visits a provider''s
+  primary hosts, and RFC 9728 protected-resource metadata lives on the MCP host, so these documents existed
+  and were invisible to the scorer. Fetched live and validated on `resource`/`issuer`; one negative control
+  per host.'
