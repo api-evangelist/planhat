@@ -1,5 +1,5 @@
 generated: '2026-10-12'
-method: none
+method: searched
 source:
 - https://zapier.com/apps/planhat/integrations
 - https://n8n.io/integrations/planhat/
@@ -7,10 +7,78 @@ source:
 - https://monid.ai/tools/planhat
 checked:
 - https://composio.dev/toolkits/planhat
+- https://hightouch.com/docs/destinations/planhat
 - https://monid.ai/tools/planhat
 - https://n8n.io/integrations/planhat/
+- https://www.twilio.com/docs/segment/connections/destinations/catalog/planhat
 - https://zapier.com/apps/planhat/integrations
 summary: null
 marketplace_apps: []
-edges: []
+edges:
+- partner_name: Twilio Segment
+  partner: segment
+  partner_match: aggregator
+  marketplace: coverage
+  channel: partner-built
+  direction: partner-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://www.twilio.com/docs/segment/connections/destinations/catalog/planhat
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - planhat
+      status: PUBLIC
+      partner_owned: false
+      connection_modes:
+      - cloud:mobile
+      - cloud:server
+      - cloud:web
+      accepted_methods:
+      - Alias
+      - Group
+      - Identify
+      - Page
+      - Track
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
+- partner_name: Hightouch
+  partner: hightouch
+  partner_match: aggregator
+  marketplace: coverage
+  channel: partner-built
+  direction: partner-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://hightouch.com/docs/destinations/planhat
+  coverage_role:
+  - destination
+  cdp_signals:
+    destination:
+      catalog_entries:
+      - planhat
+      status: released
+      sync_types:
+      - Assets
+      - Campaigns
+      - Company
+      - Conversations
+      - Endusers
+      - Invoices
+      - Issues
+      - Licenses
+      - Metrics
+      - Notes
+      - Opportunities
+      - Projects
+      - Sales
+      - User Activities
+      sync_modes:
+      - insert
+      - update
+      - upsert
+  detected_by: sweep-cdp.py
+  first_seen: '2026-10-14'
 templates: []
