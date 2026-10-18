@@ -68,7 +68,7 @@
     - alpha
     in_cloud: true
     builder: unknown (community connector; contributor not in the record)
-  status: pending-partner-spec
+  status: not-a-workflow
   arazzo: null
 - slug: planhat-fivetran
   label: Fivetran
@@ -94,5 +94,5 @@
     - connectors/applications/planhat
     vendor_link: https://www.planhat.com/
     builder: Fivetran
-  status: pending-partner-spec
+  status: not-a-workflow
   arazzo: null
