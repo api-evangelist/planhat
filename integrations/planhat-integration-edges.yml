@@ -18,6 +18,7 @@ checked:
 - https://zapier.com/apps/planhat/integrations
 - okta/integrations/okta-integration-edges.yml
 - zendesk/integrations/zendesk-integration-edges.yml
+- hubspot/integrations/hubspot-integration-edges.yml
 summary: null
 marketplace_apps: []
 edges:
@@ -87,31 +88,6 @@ edges:
       - upsert
   detected_by: sweep-cdp.py
   first_seen: '2026-10-14'
-- partner_name: Okta (own)
-  partner: okta
-  partner_match: mirror
-  mirror_match: domain
-  type: marketplace
-  relationship: platform-app
-  direction: third-party
-  channel: partner-built
-  marketplace: own
-  evidence: https://www.okta.com/integrations/planhat/
-  mirror_of: okta/integrations/okta-integration-edges.yml
-  apps:
-  - Planhat
-  listing_count: 1
-  detected: '2026-10-14'
-  detected_by: mirror-platform-listings.py
-  category: Single Sign-On
-  badges:
-  - OKTA_VERIFIED
-  features:
-  - CREATE
-  - DEACTIVATE
-  - GROUP_PUSH
-  - SAML
-  - UPDATE
 - partner_name: Airbyte
   partner: airbyte
   partner_match: aggregator
@@ -168,6 +144,31 @@ edges:
     builder: Fivetran
   detected_by: sweep-data-integration.py
   first_seen: '2026-10-18'
+- partner_name: Okta (own)
+  partner: okta
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://www.okta.com/integrations/planhat/
+  mirror_of: okta/integrations/okta-integration-edges.yml
+  apps:
+  - Planhat
+  listing_count: 1
+  detected: '2026-10-14'
+  detected_by: mirror-platform-listings.py
+  category: Single Sign-On
+  badges:
+  - OKTA_VERIFIED
+  features:
+  - CREATE
+  - DEACTIVATE
+  - GROUP_PUSH
+  - SAML
+  - UPDATE
 - partner_name: Zendesk (own)
   partner: zendesk
   partner_match: mirror
@@ -185,4 +186,21 @@ edges:
   detected: '2026-10-19'
   detected_by: mirror-platform-listings.py
   category: Agent Productivity
+- partner_name: HubSpot (own)
+  partner: hubspot
+  partner_match: mirror
+  mirror_match: domain
+  type: marketplace
+  relationship: platform-app
+  direction: third-party
+  channel: partner-built
+  marketplace: own
+  evidence: https://ecosystem.hubspot.com/marketplace/listing/planhat-53239
+  mirror_of: hubspot/integrations/hubspot-integration-edges.yml
+  apps:
+  - Planhat
+  listing_count: 1
+  detected: '2026-10-21'
+  detected_by: mirror-platform-listings.py
+  category: CUSTOMER_SUCCESS
 templates: []

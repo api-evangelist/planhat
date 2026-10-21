@@ -27,19 +27,6 @@
   relationship: connector-coverage
   status: not-a-workflow
   arazzo: null
-- slug: planhat-okta-own
-  label: Okta (own)
-  partner: okta
-  partner_name: Okta (own)
-  category: Single Sign-On
-  type: marketplace
-  marketplace: own
-  channel: partner-built
-  evidence: https://www.okta.com/integrations/planhat/
-  source: edge
-  relationship: platform-app
-  status: not-a-workflow
-  arazzo: null
 - slug: planhat-airbyte
   label: Airbyte
   partner: airbyte
@@ -96,6 +83,19 @@
     builder: Fivetran
   status: not-a-workflow
   arazzo: null
+- slug: planhat-okta-own
+  label: Okta (own)
+  partner: okta
+  partner_name: Okta (own)
+  category: Single Sign-On
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://www.okta.com/integrations/planhat/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
 - slug: planhat-zendesk-own
   label: Zendesk (own)
   partner: zendesk
@@ -105,6 +105,19 @@
   marketplace: own
   channel: partner-built
   evidence: https://www.zendesk.com/marketplace/apps/support/97448/planhat/
+  source: edge
+  relationship: platform-app
+  status: not-a-workflow
+  arazzo: null
+- slug: planhat-hubspot-own
+  label: HubSpot (own)
+  partner: hubspot
+  partner_name: HubSpot (own)
+  category: CUSTOMER_SUCCESS
+  type: marketplace
+  marketplace: own
+  channel: partner-built
+  evidence: https://ecosystem.hubspot.com/marketplace/listing/planhat-53239
   source: edge
   relationship: platform-app
   status: not-a-workflow
