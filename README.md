@@ -64,6 +64,118 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Planhat is a company surfaced as a portfolio company of creandum and added to the API Evangelist network as a stub for enrichment. Sector: saas. This profile is a lead awaiting the enrichment pipeline.
+Planhat is a Customer Platform that unifies customer success, product usage, revenue and post-sales operations for B2B SaaS companies. It centralizes companies, end users, licenses, conversations, NPS, health scores and time-series usage metrics, then drives playbooks, automations and revenue workflows on top of that data. Planhat exposes a REST API (api.planhat.com), a separate high-throughput analytics/tracking endpoint (analytics.planhat.com), bulk upsert, an OAuth authorization server, and a remote MCP server (api.planhat.com/v1/mcp) for AI agents. Backed by Creandum and added to the API Evangelist network; this profile was enriched from Planhat's public developer surface.
 
-Backed by: creandum — https://www.planhat.com/
+**Areas:** Company · Software-as-a-Service · Customer Success · Customer Platform · CRM · Customer Data · Analytics · Revenue · MCP
+
+## Planhat on APIs.io
+
+Everything profiled for Planhat is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/planhat/](https://apis.io/providers/planhat/)** — or go straight to one of the APIs or properties below.
+
+### APIs (2)
+
+- [Planhat REST API](https://apis.io/apis/planhat/planhat-rest-api/) — Planhat's REST API for reading and writing every core Customer Platform object — companies, end users, licenses, conversations, notes, tasks, opportunities,…
+- [Planhat Analytics API](https://apis.io/apis/planhat/planhat-analytics-api/) — High-throughput tracking endpoint for pushing user activities and product usage metrics into Planhat. Addressed by tenant UUID in the URL path (open /…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Planhat Webhooks](https://apis.io/asyncapis/planhat/planhat-webhooks/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [planhat](https://apis.io/servers/planhat/planhat/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Planhat Authentication](https://apis.io/security/planhat/planhat-authentication/)
+- [Planhat Domain Security](https://apis.io/security/planhat/planhat-domain-security/)
+- [Planhat Trust Center](https://apis.io/security/planhat/planhat-trust-center/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Planhat Rate Limits](https://apis.io/rate-limits/planhat/planhat-rate-limits/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.planhat.com/)
+- [Documentation](https://www.planhat.com/developers/api/introduction)
+- [Getting started](https://www.planhat.com/developers/api/introduction)
+- [API reference](https://www.planhat.com/developers/api/introduction)
+- [Pricing](https://www.planhat.com/pricing)
+- [Support](https://help.planhat.com/en/)
+- [Changelog](https://www.planhat.com/changelog)
+- [Blog](https://www.planhat.com/blog)
+- [Compliance](https://trust.planhat.com/)
+- [Terms of service](https://www.planhat.com/legal/acceptable-use-policy)
+- [Privacy policy](https://www.planhat.com/legal/cookie-policy)
+- [GitHub](https://github.com/planhat)
+- [Status](https://status.planhat.com/)
+
+## API Evangelist rating
+
+**Kin Score 53.0** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 39.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 73.7 |
+| Developer ergonomics | 61.9 |
+| Access clarity | 47.4 |
+
+**Agent readiness 45.7** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | documented (partial credit) |
+| Event Surface Described | yes |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 29.4** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/planhat/](https://apis.io/providers/planhat/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Planhat: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/planhat/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
